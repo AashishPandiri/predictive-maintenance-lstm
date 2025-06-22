@@ -1,0 +1,26 @@
+data:
+  raw_data_path: "data/raw/"
+  processed_data_path: "data/processed/"
+  n_machines: 500
+  sensor_columns: ["temperature", "vibration", "pressure", "humidity", "speed"]
+  target_column: "failure"
+  sequence_length: 48
+  prediction_horizon: 48
+
+model:
+  lstm_units: [128, 64, 32]
+  dropout_rate: 0.2
+  learning_rate: 0.001
+  batch_size: 32
+  epochs: 100
+  early_stopping_patience: 10
+
+training:
+  test_size: 0.2
+  validation_size: 0.2
+  random_state: 42
+
+dashboard:
+  title: "Predictive Maintenance Dashboard"
+  refresh_interval: 30
+  alert_threshold: 0.7
